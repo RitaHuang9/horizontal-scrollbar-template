@@ -3,24 +3,152 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><%- title %></title>
+  <title>
+    <%- title %>
+  </title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style/all.css">
 </head>
 
-<body>
-  <header class="header">
-    這是 header
+<body class="">
+  <header class="header" id="header">
+    <div class="header_top">
+      <h1 class="logo">
+        <a href="./index.html" title="前往 首頁"></a>
+      </h1>
+      <ul class="nav">
+        <li class="navItem"><a href="./news.html">樂利深不</a>
+        </li>
+        <li class="navItem"><a href="./about.html">樂利深不</a>
+          <ul class="navMenu">
+            <li class="navMenu-item fz-h6"><a href="./about.html#about01">樂利深不</a></li>
+            <li class="navMenu-item fz-h6"><a href="./about.html#about02">樂利深不</a></li>
+            <li class="navMenu-item fz-h6"><a href="./about.html#about03">樂利深不</a></li>
+            <li class="navMenu-item fz-h6"><a href="./recruit.html">樂利深不</a></li>
+          </ul>
+        </li>
+        <li class="navItem"><a href="./product.html">樂利深不</a>
+          <ul class="navMenu">
+            <li class="navMenu-item fz-h6"><a href="./product_finance.html">樂利深不</a></li>
+            <li class="navMenu-item fz-h6"><a href="./product_information.html">樂利深不</a></li>
+            <li class="navMenu-item fz-h6"><a href="./product_pay.html">樂利深不</a></li>
+          </ul>
+        </li>
+        <li class="navItem"><a href="./certificate.html">樂利深不</a>
+        </li>
+        <li class="navItem"><a href="./contact.html">樂利深不</a>
+          <ul class="navMenu">
+            <li class="navMenu-item fz-h6"><a href="./contact.html">樂利深不</a></li>
+          </ul>
+        </li>
+        <li class="navItem"><a href="./client.html">樂利深不</a>
+        </li>
+      </ul>
+      <!-- icon_漢堡 -->
+      <div class="menu i_menu d_none unToggled" id="burger">
+        <div></div>
+      </div>
+    </div>
+    <ul class="subMenu unToggled subMenu_content" id="subMenu">
+      <li class="subMenu_list">
+        <div class="subMenu_title"><a href="./news.html">樂利深不</a></div>
+      </li>
+      <li class="subMenu_list">
+        <div class="subMenu_title"><a href="./about.html">樂利深不</a></div>
+        <div class="subMenu_item">
+          <ul class="subMenu_item_list">
+            <li><a class="subMenu_item_link" href="./about.html#about01">樂利深不</a></li>
+            <li><a class="subMenu_item_link" href="./about.html#about02">樂利深不</a></li>
+            <li><a class="subMenu_item_link" href="./about.html#about03">樂利深不</a></li>
+            <li><a class="subMenu_item_link" href="./recruit.html">樂利深不</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="subMenu_list">
+        <div class="subMenu_title"><a href="./product.html">樂利深不</a></div>
+        <div class="subMenu_item">
+          <ul class="subMenu_item_list">
+            <li><a class="subMenu_item_link" href="./product_finance.html">樂利深不</a></li>
+            <li><a class="subMenu_item_link" href="./product_information.html">樂利深不</a></li>
+            <li><a class="subMenu_item_link" href="./product_pay.html">樂利深不</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="subMenu_list">
+        <div class="subMenu_title"><a href="./certificate.html">樂利深不</a></div>
+        <div class="subMenu_item">
+          <!-- <ul>
+                  <li><a href="product_finance.html">樂利深不</a></li>
+              </ul> -->
+        </div>
+      </li>
+      <li class="subMenu_list">
+        <div class="subMenu_title"><a href="./contact.html">樂利深不</a></div>
+        <div class="subMenu_item ">
+          <ul class="subMenu_item_list">
+            <li><a class="subMenu_item_link" href="./contact.html">樂利深不</a> </li>
+          </ul>
+        </div>
+      </li>
+      <li class="subMenu_list">
+        <div class="subMenu_title"><a href="./client.html">樂利深不</a></div>
+      </li>
+    </ul>
   </header>
 
   <%- contents %>
 
-  <footer class="footer">
-    footer
-  </footer>
-  <script src="./assets/js/vendors.js"></script>
-  <script src="./assets/js/all.js"></script>
+    <footer class="footer-main">
+      <div class="goTop" id="goTop">
+        <div class="goTop_btn">
+          <i class="i_goTop"></i>
+          <p class="fz-h7">TOP</p>
+        </div>
+      </div>
+      <div class="slogan">
+        <div class="container wrapper fw-medium">
+          您可信賴的全方位安全電子商務與訊息溝通夥伴
+        </div>
+      </div>
+      <div class="footer">
+        <div class="wrapper footer_container">
+          <div class="footer_Info">
+            <div class="infoBox">
+              <div class="title">
+                <h4 class="fz-h4 fw-bold">testttt</h4>
+              </div>
+              <div class="txt fz-h6">
+                <p><a href="https://goo.gl/maps/mnmQyNEYjurogjaB6" target="_blank">是河多分機當</a></p>
+                <p><a href="tel:+886-2-26586000" target="_blank">TEL 02-2338-6450</a></p>
+                <p><a href="tel:+886-2-26586063" target="_blank">FAX 02-3418-1233</a></p>
+              </div>
+            </div>
+            <div class="infoBox">
+              <div class="title">
+                <h4 class="fz-h4 fw-bold">台中</h4>
+              </div>
+              <div class="txt fz-h6">
+                <p><a href="https://goo.gl/maps/agTa3vP2AYd7eNze8" target="_blank">是河多分機當</a></p>
+                <p><a href="tel:+886-4-23295966" target="_blank">TEL 042-2132-5316</a></p>
+                <p><a href="tel:+886-2-26586063" target="_blank">FAX 02-2332-22311</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="copyright">
+            <div class="txt fz-h7">
+              <p>Copyright© 2022 dddasfdfdf All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="./assets/js/all.js?ver=20221229"></script>
+
 </body>
 
 </html>

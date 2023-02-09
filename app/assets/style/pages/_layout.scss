@@ -1,0 +1,228 @@
+/* ---------TODO: [header]----------*/
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid $black-10;
+    &_top {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+        @include flex(center, space-between);
+    }
+    &_container {
+        height: auto;
+    }
+    .logo {
+        a {
+            // background: url(../images/HiTRUSE_logo.svg) no-repeat center left;
+            background-size: contain;
+            width: 300px;
+            height: 43px;
+            margin-bottom: 6px;
+        }
+    }
+}
+
+.nav {
+    @include flex(center, space-between);
+    .navItem {
+        color: $black-80;
+        font-weight: $fw-bold;
+        display: inline-block;
+        min-height: 40px;
+        line-height: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        &:not(:last-child) {
+            padding-right: 50px;
+        }
+
+        &:hover .navMenu {
+            display: block;
+        }
+
+        &:last-child {
+            .navMenu {
+                left: -86px;
+            }
+        }
+    }
+}
+
+.navMenu {
+    display: none;
+    border-top: 5px solid $primary;
+    background-color: $white;
+    position: absolute;
+    top: 100%;
+    left: -34px;
+    box-shadow: 0 5px 10px 0 $black-20;
+    min-width: 150px;
+    li {
+        // padding: 15px 25px;
+        font-weight: 500;
+        display: flex;
+        line-height: 1.5;
+        align-items: center;
+        letter-spacing: 0.3px;
+        a {
+            padding: 15px 25px;
+            width: 100%;
+        }
+        &:not(:first-child) {
+            border-top: 1px solid $black-20;
+        }
+        &:hover {
+            background-color: $primary;
+            & a {
+                color: $white;
+            }
+        }
+    }
+}
+
+/*-------------FIXME: 手機版選單調整-------------*/
+.subMenu {
+    display: none;
+    &_list {
+        padding-bottom: 10px;
+        @include flex;
+        &:not(:first-child) {
+            padding-top: 20px;
+        }
+        &:not(:last-child) {
+            border-bottom: 1px solid $black-10;
+        }
+    }
+    &_title {
+        width: 50%;
+        & a {
+            font-size: $font-h5;
+            font-weight: $fw-bold;
+            color: $primary;
+            width: 100%;
+        }
+    }
+    &_item {
+        width: 100%;
+        &_list {
+            padding-right: 10px;
+            width: 100%;
+            li {
+                &:not(:last-child) {
+                    .subMenu_item_link {
+                        padding: 4px 0 13px 0;
+                    }
+                }
+                .subMenu_item_link {
+                    margin-right: 10px;
+                    font-size: 14px;
+                    color: $black-80;
+                    line-height: 1.3;
+                }
+            }
+        }
+    }
+}
+
+/* ---------TODO: [footer]----------*/
+
+.footer-main {
+    margin-top: 80px;
+}
+
+.goTop {
+    position: fixed;
+    z-index: 101;
+    bottom: 200px;
+    right: 0px;
+    padding: 10px;
+    opacity: 0;
+    transition: 0.4s 0.2s;
+
+    &_btn {
+        border: 1px solid $black-20;
+        background-color: $white;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        @include flex(center, center, column);
+        cursor: pointer;
+        &:hover {
+            background-color: $sub_secondary;
+            border: 1px solid $sub_secondary;
+            color: $white;
+            transition: 0.4s 0.2s;
+            .i_goTop {
+                background: url(../images/icon/i_goTop_hover.svg) no-repeat;
+                transition: 0.4s 0.3s;
+            }
+        }
+    }
+    .i_goTop {
+        width: 19px;
+        height: 19px;
+        background: url(../images/icon/i_goTop.svg) no-repeat;
+        background-size: 19px;
+        padding-bottom: 5px;
+    }
+}
+
+.slogan {
+    background-color: $primary;
+    color: $white;
+    padding: 20px;
+}
+
+.footer {
+    &_container {
+        padding: 30px 20px;
+        @include flex(flex-end, space-between);
+    }
+}
+
+.footer_Info {
+    width: 100%;
+    @include flex(center);
+    & > div {
+        width: 100%;
+    }
+    & .infoBox:first-child {
+        // margin-right: 60px;
+        padding-right: 60px;
+    }
+    .infoBox {
+        /*----- [移除台中地址後不顯示右邊的線] ----------*/
+        // border-right: 1px solid $black-60;
+        @include flex(center);
+    }
+    .title {
+        margin-right: 10px;
+        width: 100%;
+        max-width: 100px;
+        min-width: 75px;
+    }
+    .txt {
+        width: 100%;
+        & p:not(:last-child) {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.copyright {
+    /*---------- 移除台中地址前max-width:180px----------------*/
+    max-width: 300px;
+    width: 100%;
+    .fz-h7 {
+        line-height: 18px;
+        letter-spacing: 0.3px;
+    }
+}

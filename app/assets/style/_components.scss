@@ -1,0 +1,511 @@
+.block_content {
+    padding: 0 20px;
+}
+
+/* ---------TODO: [麵包屑]----------*/
+.breadcrumbs {
+    @include breadcrumbs
+}
+
+
+/* ---------TODO: [pages_左側錨點選單]----------*/
+.pages_tab_box {
+    width: 25%;
+    .pages_tab {
+        width: 151px;
+        position: sticky;
+        top: 100px;
+    }
+    ul {
+        padding-left: 15px;
+        a {
+            margin-bottom: 20px;
+            color: $black-40;
+            cursor: pointer;
+            // font-size: $font-h5;
+            line-height: 27px;
+            &:hover {
+                color: $primary;
+                transition: 0.2s 0.1s;
+            }
+            &.active {
+                color: $primary;
+                font-weight: bold;
+                position: relative;
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    height: calc(100% - 6px);
+                    width: 3px;
+                    background-color: $primary;
+                    border-radius: 10px;
+                    top: 4px;
+                    left: -15px;
+                }
+            }
+        }
+    }
+    &.showIn {
+        transform: translateX(0);
+    }
+}
+
+/* ---------TODO: [pages_banner]----------*/
+#pages .slogan {
+    margin-top: 100px;
+}
+
+#banner .wrapper {
+    margin-top: 81px;
+    padding: 0 20px;
+    max-width: 1280px;
+    z-index: 2;
+    position: relative;
+    height: 100%;
+    @include flex($jc:center, $flex-d:column);
+}
+
+.pages_banner {
+    height: 250px;
+    margin-bottom: 70px;
+}
+
+.pages_banner_bg {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.7);
+    z-index: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    //about.html
+    &.p_about_bg {
+        background-image: url(../images/about_banner.jpg);
+    }
+
+    // product.html
+    &.p_product_bg {
+        background-image: url(../images/pages/product/product_bg.jpg);
+    }
+
+    // product_finance.html
+    &.p_finance_bg {
+        background-image: url(../images/pages/product/finance/productFinance_bg.jpg);
+    }
+
+    // product_information.html
+    &.p_information_bg {
+        background-image: url(../images/pages/product/information/information_bg.png);
+    }
+
+    // contact.html
+    &.p_contact_bg {
+        background-image: url(../images/pages/contact/contact.jpg);
+    }
+
+    // certificate.html
+    &.p_certificate_bg {
+        background-image: url(../images/pages/certificate/certificate_img.jpg);
+    }
+
+    // client.html
+    &.p_client_bg {
+        background-image: url(../images/pages/client/client_img.jpg);
+    }
+
+    // recruit.html
+    &.p_recruit_bg {
+        background-image: url(../images/recruit.png);
+        filter: grayscale(0);
+    }
+
+    // hitrusrpay.html
+    &.p_hitrusrpay_bg {
+        background-image: url(../images/pages/product/pay/pay_bg.png);
+    }
+
+    // news.html
+    &.p_news_bg {
+        background-image: url(../images/pages/news/news_bg.jpg);
+    }
+}
+
+.pages_title {
+    @include pages-title
+}
+
+/* ---------TODO: [pages_body]----------*/
+
+.p_about {
+    padding: 0 20px;
+}
+.p_about_block {
+    @include flex($ai: normal, $jc:space-between);
+}
+
+.p_content {
+    width: 69%;
+    .p_Info {
+        @include flex;
+        position: relative;
+        &:not(:first-child) {
+            margin-top: 120px;
+        }
+    }
+    &_title {
+        width: 148px;
+        height: 148px;
+        border: 2px solid $black-10;
+        z-index: 1;
+        position: absolute;
+        left: -170px;
+        @include flex(flex-start, flex-end, column);
+        &::after {
+            content: "";
+            width: 10px;
+            height: 45px;
+            position: absolute;
+            background-color: #ffffff;
+            bottom: 20px;
+            right: -5px;
+            z-index: -1;
+        }
+        .fz-h5 {
+            padding: 20px 0 50px 15px;
+            position: relative;
+            color: $black-80;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
+            &.twoRow {
+                padding: 13px 5px 50px 13px;
+                &::after {
+                    bottom: 45px;
+                }
+            }
+
+            &::after {
+                content: "";
+                width: 210px;
+                position: absolute;
+                background-color: $primary;
+                height: 1px;
+                bottom: 35px;
+                left: 15px;
+            }
+        }
+    }
+    &_box {
+        height: 100%;
+        width: 100%;
+        .p_img_block {
+            @include flex($ai:center);
+            padding-top: 20px;
+            .img_box {
+                width: 50%;
+                max-width: 275px;
+                border: 4px solid $black-10;
+                margin-right: 30px;
+                box-sizing: border-box;
+                & img {
+                    height: auto;
+                }
+            }
+            &_txt {
+                padding-left: 20px;
+                li {
+                    position: relative;
+                    letter-spacing: 2px;
+                    color: $black-60;
+                    line-height: 1.4;
+                    &:not(:last-child) {
+                        padding-bottom: 10px;
+                    }
+                    &::before {
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        background-color: $primary;
+                        position: absolute;
+                        top: 7px;
+                        left: -15px;
+                    }
+                }
+            }
+        }
+    }
+    &_txt {
+        max-width: 680px;
+    }
+    .infoBox {
+        background-color: $info;
+        padding: 20px 25px;
+        margin-top: 30px;
+        @include flex($ai: flex-start);
+        .infoBox_title {
+            position: relative;
+            padding-right: 10px;
+            padding-top: 8px;
+            min-width: 90px;
+            font-weight: $fw-bold;
+            color: $black-80;
+            &::after {
+                content: "/";
+                color: $sub_primary;
+                position: absolute;
+                top: 7px;
+                right: 10px;
+            }
+        }
+        .font-default {
+            padding-top: 0px;
+        }
+    }
+    &_img {
+        // max-width: 780px;
+        height: 100%;
+        padding-bottom: 30%;
+        margin: 0 0 0 auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &.companyInfo_img {
+            background-image: url(../images/pages/about/companyInfo_img.jpg);
+        }
+        &.businessConcept_img {
+            background-image: url(../images/pages/about/businessConcept_img.png);
+        }
+        &.about_img03 {
+            background-image: url(../images/pages/about/about_img03.jpg);
+        }
+        // 圖片位置：產品介紹 > 資訊安全服務
+        &.p_info_img01 {
+            background-image: url(../images/pages/product/information/p_info_img01.png);
+        }
+        &.p_info_img02 {
+            background-image: url(../images/pages/product/information/p_info_img02.png);
+        }
+        &.p_info_img03 {
+            background-image: url(../images/pages/product/information/p_info_img03.png);
+        }
+        &.p_info_img04 {
+            background-image: url(../images/pages/product/information/p_info_img03.png);
+        }
+    }
+    .concept_img_box {
+        width: 62%;
+        .list-item {
+            @include flex(center, space-between);
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+            .list-title {
+                letter-spacing: 2px;
+                line-height: 46px;
+                width: 25%;
+                margin-left: 5px;
+            }
+            .num {
+                font-family: "Jost";
+                color: $sub_primary;
+                margin-right: 10px;
+                font-style: italic;
+                font-size: 32px;
+                font-weight: 500;
+                width: 8%;
+            }
+            .line {
+                border-bottom: 1px solid $sub_primary;
+                border-top: 0px;
+                margin: 0 5px;
+                width: 32%;
+            }
+            .en-name {
+                width: 35%;
+                margin-left: 10px;
+            }
+        }
+    }
+    .concept_image {
+        background: url(../images/pages/about/businessConcept_02.png) no-repeat center center;
+        position: absolute;
+        width: 330px;
+        height: 330px;
+        right: 0;
+        bottom: 0;
+        box-shadow: 0 3px 15px 0 #00000052;
+        background-size: cover;
+    }
+    &_subTitle {
+        padding-top: 40px;
+        letter-spacing: 2px;
+        color: $black-80;
+    }
+}
+
+/* ---------TODO: [btn]----------*/
+.textAndBtn-box {
+    max-width: 300px;
+    margin: 0 0 0 auto;
+}
+
+.textAndBtn {
+    margin-top: 20px;
+    @include flex(center, flex-end);
+    .txt {
+        position: relative;
+        color: $sub_primary;
+        margin-right: 10px;
+        font-family: jost;
+        letter-spacing: 1px;
+        &::after {
+            content: "";
+            width: 0%;
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            height: 1px;
+            background-color: $sub_primary;
+            transition: 0.4s 0.2s;
+        }
+    }
+    &:hover {
+        @include textAndBtn-hover;
+    }
+    .btn {
+        float: right;
+        margin-top: 0;
+        img {
+            width: 20px;
+        }
+    }
+}
+
+.btn_more {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    @include flex(center, center);
+    cursor: pointer;
+    &.gold {
+        background-color: $sub_primary;
+        border: 1px solid $sub_primary;
+        color: $white;
+        &:hover {
+            color: $sub_primary;
+            background-color: transparent;
+        }
+    }
+}
+
+.btn {
+    margin-top: 40px;
+    border-radius: 100%;
+    @include flex($ai: center, $jc: center);
+    &_prve {
+        background: url(../images/icon/i_arrow_red.svg) no-repeat center center;
+        background-size: 18px;
+        transform: rotateZ(180deg);
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        filter: grayscale(1);
+        opacity: 0.7;
+        border: 1px solid $primary;
+    }
+    &_next {
+        background: url(../images/icon/i_arrow_red.svg) no-repeat center center;
+        background-size: 18px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $primary;
+    }
+}
+
+/* ---------TODO: [history 重要事紀]----------*/
+.history {
+    margin-top: 40px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: calc(100% - 40px);
+        background-color: $primary;
+        background-repeat: no-repeat;
+        left: 122px;
+        top: 8px;
+    }
+    &_item {
+        @include flex;
+        position: relative;
+        padding-bottom: 40px;
+        &:not(:first-child) {
+            margin-top: 40px;
+        }
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            background: linear-gradient(to left, transparent 0%, transparent 50%, $black-20 50%);
+            background-size: 22px 1px;
+            background-repeat: repeat-x;
+        }
+    }
+    &_year {
+        font-family: "Jost";
+        color: $primary;
+        font-size: $font-h2; //40px
+        font-weight: 500;
+        position: relative;
+        padding-right: 25px;
+        width: 100%;
+        max-width: 125px;
+        margin-right: 25px;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 21px;
+            height: 21px;
+            border-radius: 100%;
+            background-color: $primary;
+            outline: 6px solid $white;
+            top: 9px;
+            right: -8px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            border-radius: 100%;
+            background-color: $white;
+            top: 15px;
+            right: -2px;
+            z-index: 2;
+        }
+    }
+    &_content {
+        width: 100%;
+        & > p,
+        & > div {
+            text-align: left;
+        }
+        & > div:first-child {
+            padding-top: 11px;
+        }
+        & > p:first-child {
+            padding-top: 6px;
+        }
+        .font-default {
+            padding-top: 10px;
+        }
+    }
+}
+
+

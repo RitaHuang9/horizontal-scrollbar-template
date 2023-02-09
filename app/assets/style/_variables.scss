@@ -1,0 +1,41 @@
+$font-family-base: 
+-apple-system, 
+"Microsoft JhengHei", 
+Roboto,
+"Noto Sans TC",
+"Helvetica Neue",
+Arial,
+sans-serif;
+
+/* color-variables */
+
+$primary: #8c1c36; //深酒紅色
+$sub_primary: #cbb291; //金色
+$secondary: #b21614; //亮紅色
+$sub_secondary: #c2a073; //深金色
+$info: #faf7f4; //淺金色
+//黑色
+$black: #000;
+$black-10: rgba(0, 0, 0, 0.1);
+$black-20: rgba(0, 0, 0, 0.2);
+$black-40: rgba(0, 0, 0, 0.4);
+$black-60: rgba(0, 0, 0, 0.6);
+$black-80: rgba(0, 0, 0, 0.8);
+//白色
+$white: #fff;
+$white-80: #ffffff80;
+$white-60: #ffffff60;
+
+/* font-variables */
+
+$font-size-base: 16px;
+$font-h1: 48px;
+$font-h2: 40px;
+$font-h3: 24px;
+$font-h4: 20px;
+$font-h5: 18px;
+$font-h6: 14px;
+$font-h7: 12px;
+// font-weight
+$fw-bold: 700;
+$fw-medium: 500;

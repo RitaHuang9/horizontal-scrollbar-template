@@ -1,0 +1,26 @@
+#pages_certificate{
+    .pdList{
+        cursor: auto;
+        &:last-child{
+            padding-bottom: 60px;
+        }
+        .content{
+            width: 100%;
+            padding-left: 40px;
+            span{
+                color: $primary;
+            }
+            p{
+                width: 95%;
+            }
+        }
+        &_img_box{
+            max-width: 100%;
+        }
+        &_img_box{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}

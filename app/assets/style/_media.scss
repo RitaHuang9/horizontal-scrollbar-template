@@ -1,0 +1,952 @@
+/*----------------------------
+desktop    -> max-width: 992px
+pad        -> max-width: 768px
+mobile_lg  -> max-width: 414px
+mobile     -> max-width: 375px
+mobile_s   -> max-width: 320px
+----------------------------*/
+/* ---------TODO: [header]----------*/
+@include desktop {
+    .nav {
+        display: none;
+    }
+    .header {
+        .wrapper {
+            padding: 0 20px;
+        }
+        .logo {
+            a {
+                background-size: 200px;
+                width: 200px;
+                height: 40px;
+            }
+        }
+        &.active {
+            .menu {
+                &.i_menu {
+                    &.unToggled {
+                        > div::before {
+                            animation: burg2top 0.7s linear forwards;
+                            bottom: 0px;
+                            background: $primary;
+                        }
+                        > div {
+                            background: transparent;
+                        }
+                        > div::after {
+                            animation: burg2bottom 0.7s linear forwards;
+                            top: 0px;
+                            background: $primary;
+                        }
+                    }
+                    @keyframes burg2top {
+                        0% {
+                        }
+                        20% {
+                            margin-top: 0em;
+                            transform: rotate(0deg);
+                        }
+                        60% {
+                            margin-top: 0em;
+                            transform: rotate(55deg);
+                        }
+                        100% {
+                            margin-top: 0em;
+                            transform: rotate(45deg);
+                        }
+                    }
+
+                    @keyframes burg2bottom {
+                        0% {
+                        }
+                        20% {
+                            margin-top: 0em;
+                            transform: rotate(0deg);
+                        }
+                        60% {
+                            margin-top: 0em;
+                            transform: rotate(-55deg);
+                        }
+                        100% {
+                            margin-top: 0em;
+                            transform: rotate(-45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .menu {
+        display: block;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        &.showHitArea {
+            border: 1px solid olive;
+        }
+        & > div {
+            width: 26px;
+            height: 2px;
+            background: $black-60;
+            position: absolute;
+            top: 50%;
+            border-radius: 10px;
+            &::before,
+            &::after {
+                transition: font-size 0s;
+                content: "";
+                display: block;
+                position: absolute;
+                width: 26px;
+                height: 2px;
+                background: $black-60;
+                border-radius: 10px;
+            }
+            &::before {
+                bottom: -12px;
+            }
+            &::after {
+                top: 13px;
+            }
+        }
+        &.i_menu {
+            position: relative;
+            height: 40px;
+            width: 30px;
+            transition: background 0.7s;
+            & > div {
+                transition: background 0.7s, font-size 0s;
+                &::before,
+                &::after {
+                    transition: font-size 0s;
+                    transform-origin: center center;
+                }
+            }
+            &.unToggled {
+                > div::before {
+                    animation: burg2topReset 0.5s linear forwards;
+                }
+                > div {
+                    background: $black-60;
+                }
+                > div::after {
+                    animation: burg2bottomReset 0.5s linear forwards;
+                }
+            }
+            @keyframes burg2topReset {
+                0% {
+                    bottom: 0px;
+                    transform: rotate(45deg);
+                }
+                20% {
+                    transform: rotate(0deg);
+                }
+                60% {
+                    bottom: -8px;
+                    transform: rotate(0deg);
+                }
+                100% {
+                    bottom: -10px;
+                    transform: rotate(0deg);
+                }
+            }
+
+            @keyframes burg2bottomReset {
+                0% {
+                    top: 0px;
+                    transform: rotate(-45deg);
+                }
+                20% {
+                    transform: rotate(0deg);
+                }
+                60% {
+                    top: -15px;
+                    transform: rotate(0deg);
+                }
+                100% {
+                    top: -10px;
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+    .subMenu {
+        display: none;
+        &_content {
+            z-index: 99;
+            position: fixed;
+            left: 0;
+            height: calc(100vh - 80px); //header 80px
+            overflow: hidden;
+            background: url(../images/bg_subMenu.png) no-repeat bottom left;
+            background-color: #fff;
+            background-size: 300px;
+            width: 100%;
+            border-bottom: 16px solid #9c2020;
+            padding: 0 20px 20px;
+        }
+    }
+}
+
+@include mobile_s {
+    .subMenu {
+        &_title {
+            & a {
+                font-size: 16px;
+            }
+        }
+        &_item {
+            &_link {
+                &:not(:last-child) {
+                    padding: 0px 0 15px 0;
+                }
+            }
+        }
+    }
+}
+
+/* ---------TODO: [footer]----------*/
+@include desktop {
+    .footer {
+        &_container {
+            @include flex($ai: center, $flex-d: column);
+        }
+    }
+    .footer_Info {
+        .infoBox {
+            padding-right: 40px;
+            margin-right: 40px;
+            &:first-child .title {
+                margin-right: 40px;
+            }
+        }
+    }
+    .copyright {
+        max-width: 100%;
+        width: 100%;
+        padding-top: 30px;
+        text-align: center;
+    }
+    .goTop {
+        bottom: 250px;
+    }
+}
+
+@include pad {
+    .footer_Info {
+        @include flex($ai:flex-start, $flex-d: column);
+        .infoBox {
+            border-right: none;
+            padding-bottom: 20px;
+            padding-right: 0px;
+            margin-right: 0px;
+            &:first-child .title {
+                margin-right: 0px;
+            }
+        }
+        .title {
+            margin-right: 0px;
+            min-width: 150px;
+        }
+    }
+    .goTop {
+        bottom: 350px;
+    }
+}
+
+@include mobile_lg {
+    .slogan {
+        font-size: 12px;
+    }
+    .footer_Info {
+        .txt p:not(:last-child) {
+            padding-bottom: 7px;
+        }
+        .title {
+            min-width: 100px;
+        }
+    }
+    .goTop {
+        bottom: 335px;
+    }
+}
+
+@include mobile_s {
+    .footer_Info {
+        .title {
+            min-width: 75px;
+        }
+    }
+}
+
+/* ---------TODO: [index]----------*/
+@include desktop {
+    .banner_info {
+        width: 50%;
+    }
+    .aboutUs {
+        padding: 40px 30px 0 30px;
+        & .wrapper {
+            .about_bg_txt {
+                right: 0px;
+            }
+        }
+        .about_box {
+            margin-top: 80px;
+            padding-bottom: 60px;
+            @include flex($flex-d:column);
+        }
+        .aboutImg_box {
+            .about_content_img {
+                width: 66.7%;
+                @include flex;
+            }
+        }
+        .w_100 {
+            width: 32.6%;
+        }
+        .aboutImg_01 {
+            margin-right: 20px !important;
+            padding-bottom: 48.75% !important;
+        }
+        .aboutImg_02 {
+            padding-bottom: 48.75% !important;
+        }
+        .aboutImg {
+            margin-bottom: 0px;
+        }
+        .about_bg {
+            width: 100%;
+            height: 85.5%;
+            top: 126px;
+        }
+    }
+    .product_item {
+        width: calc((100% - 100px) / 3);
+    }
+    .product {
+        .product_bg {
+            width: 100%;
+        }
+    }
+}
+
+@include pad {
+    .banner {
+        position: relative;
+        &_info {
+            margin-top: 3px;
+            z-index: 2;
+            width: 100%;
+            position: absolute;
+        }
+        &_img {
+            margin-top: 185px;
+        }
+        &_title {
+            padding-bottom: 10px;
+            h2 {
+                font-size: 24px;
+                line-height: 36px;
+            }
+        }
+        .red_title {
+            .fz-h4 {
+                // margin-top: 5px;
+                width: auto;
+                font-size: 16px;
+                color: $white;
+                top: 35%;
+                background-color: $primary;
+                padding: 5px 5px;
+                margin-top: 0;
+                position: initial;
+                display: inline-block;
+            }
+            span {
+                padding: 0;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        .content {
+            padding-top: 5px;
+            &_txt {
+                font-size: 16px;
+                color: #000;
+                padding: 3px 0;
+            }
+        }
+    }
+    .btn {
+        margin-top: 10px;
+        &_prve {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        &_next {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .aboutUs {
+        padding: 0 30px 0 30px;
+        & .wrapper {
+            .about_bg_txt {
+                display: none;
+            }
+        }
+        .about_bg {
+            height: 100%;
+            top: 90px;
+        }
+    }
+    .product {
+        .product_box {
+            @include flex($ai: center, $flex-d: column);
+        }
+    }
+    .product_item {
+        width: calc(100% - 40px);
+        &:not(:last-child) {
+            margin-bottom: 80px;
+        }
+    }
+}
+
+@media (max-width: 428px) {
+    .banner {
+        .red_title {
+            .fz-h4 {
+                line-height: 18px;
+                font-size: 14px !important;
+            }
+        }
+        .content {
+            &_txt {
+                font-size: 14px;
+                font-size: xx-small;
+            }
+        }
+        &_exhibition{
+            content: url('../images/banner_EDM_mobile.jpg');
+        }
+    }
+    .banner_btn {
+        display: none;
+    }
+}
+
+@include mobile {
+    .banner {
+        .red_title {
+            .fz-h4 {
+                max-width: 270px;
+            }
+        }
+    }
+}
+
+@include mobile_s {
+    .product_item {
+        width: 100%;
+    }
+}
+
+/* ---------TODO: [about]----------*/
+
+@media (max-width: 1120px) {
+    .p_about_block {
+        flex-direction: column;
+    }
+
+    .p_content {
+        width: calc(100% - 160px);
+        margin: 0 0 0 auto;
+        &_title {
+            width: 130px;
+            height: 130px;
+            left: -160px;
+        }
+        .p_Info {
+            &:first-child {
+                margin-top: 20px;
+            }
+        }
+        .concept_image {
+            width: 300px;
+            height: 300px;
+            bottom: 10px;
+        }
+    }
+}
+
+@include desktop {
+    .p_content {
+        .concept_img_box {
+            width: 70%;
+        }
+        .concept_image {
+            width: 150px;
+            height: 150px;
+            bottom: 35%;
+        }
+    }
+}
+
+@include pad {
+    .p_content {
+        width: 100%;
+        .p_Info:first-child {
+            margin-top: 120px;
+        }
+        &_title {
+            height: 100px;
+            left: 10px;
+            top: -81px;
+            justify-content: flex-start;
+            &::after {
+                bottom: 30px;
+            }
+        }
+        &_box {
+            .p_img_block {
+                flex-direction: column;
+                align-items: flex-start;
+                /*-------FIXME: img max-width---------*/
+                .img_box {
+                    width: 100%;
+                    max-width: 670px;
+                    margin-right: 0px;
+                    margin-bottom: 20px;
+                    img {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+        .concept_img_box {
+            width: 100%;
+            .list-item {
+                .list-title {
+                    min-width: 85px;
+                }
+                .line {
+                    width: 25%;
+                }
+            }
+        }
+        .concept_image {
+            display: none;
+        }
+    }
+}
+
+@include mobile_lg {
+    .p_content {
+        &_box {
+            .p_img_block {
+                &_txt {
+                    li {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .concept_img_box {
+            .list-item {
+                .num {
+                    font-size: 24px;
+                }
+                .en-name {
+                    font-size: 12px;
+                    margin-left: 5px;
+                }
+                .line {
+                    width: 15%;
+                }
+            }
+        }
+    }
+    .history {
+        &::before {
+            left: 80px;
+        }
+        &_year {
+            font-size: $font-h3;
+            padding-top: 9px;
+            max-width: 83px;
+            padding-right: 15px;
+            margin-right: 15px;
+        }
+    }
+}
+
+/* ---------TODO: [components]----------*/
+@media (max-width: 1120px) {
+    .contralBodyTop {
+        .pages_banner {
+            margin-bottom: 10px;
+        }
+    }
+
+    .pages_tab_box {
+        width: 100%;
+        position: sticky;
+        top: 77px;
+        z-index: 100;
+        background-color: $white;
+        .pages_tab {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            position: static;
+            // &::-webkit-scrollbar {
+            //     display: none;
+            // }
+            &.box_shadow_show {
+                position: absolute;
+                top: 0;
+                background: #fff;
+                left: -20px;
+                width: 100vw;
+                box-shadow: 0 2px 10px 0 $black-20;
+            }
+        }
+        ul {
+            @include flex($jc: space-between);
+            a {
+                padding: 20px 0 15px;
+                margin: 0 20px 0 0;
+                font-size: 16px;
+                &.active {
+                    padding-left: 0;
+                    border-bottom: 3px solid;
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include pad {
+    #banner .wrapper {
+        margin-top: 77px;
+    }
+}
+
+@include mobile_lg {
+    .p_content {
+        .infoBox {
+            padding: 20px 15px;
+            @include flex($flex-d: column);
+            .font-default {
+                padding-top: 10px;
+            }
+        }
+    }
+    .p_content {
+        .concept_img_box {
+            img {
+                content: url(../images/pages/about/concept-md.png);
+            }
+        }
+    }
+}
+
+@include mobile_s {
+    .pages_tab_box {
+        ul {
+            a {
+                padding: 15px 0 10px;
+                font-size: $font-h6;
+            }
+        }
+    }
+}
+
+/* ---------TODO: [products]----------*/
+@include desktop {
+    .pdList {
+        @include flex($ai: center, $flex-d: column);
+
+        &_img {
+            padding-bottom: 65.52%;
+            box-shadow: 3px 5px 10px 0 $black-20;
+        }
+
+        &_content {
+            max-width: 480px;
+            width: 100%;
+            border-top: 0px;
+            border-right: 0px;
+            padding: 20px 0 15px;
+            &.pdList_left {
+                order: 2;
+                border-left: 0;
+            }
+            p {
+                max-width: 100%;
+            }
+        }
+
+        & .order_2 {
+            order: 1;
+        }
+
+        &:hover {
+            & .pdList_content {
+                border-top: 0px;
+                border-right: 0px;
+                &.pdList_left {
+                    border-left: 0;
+                }
+            }
+        }
+
+        .btn {
+            margin-top: 0;
+        }
+    }
+}
+
+/* ---------TODO: [contact]----------*/
+@include pad {
+    .block_map {
+        .infoBox {
+            padding: 30px 20px 20px;
+            .contact_box {
+                flex-direction: column;
+            }
+            .contact_item {
+                padding: 0;
+                &:last-child {
+                    padding-left: 0px;
+                    border-left: none;
+                    border-top: 2px solid rgba(0, 0, 0, 0.2);
+                    margin-top: 30px;
+                    padding-top: 30px;
+                }
+            }
+        }
+    }
+    .map_item {
+        flex-direction: column;
+        .map_box {
+            max-width: 100%;
+            padding-right: 0px;
+        }
+        .map_info {
+            margin-top: 30px;
+            .sub_title {
+                padding-left: 0;
+            }
+            .font-default {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+/* ---------TODO: [certificate]----------*/
+@include desktop {
+    #pages_certificate {
+        .pdList {
+            &_img_box {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@include pad {
+    #pages_certificate {
+        .pdList {
+            .content {
+                padding-left: 0px;
+                p {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/* ---------TODO: [client]----------*/
+@include desktop {
+    .clientList {
+        justify-content: space-between;
+        .clientItme {
+            width: calc((100% - 40px) / 2);
+            margin-bottom: 40px;
+            &:not(:nth-child(3n + 1)) {
+                margin-left: 0px;
+            }
+            &:nth-child(even) {
+                margin-left: 20px;
+            }
+            &_txt {
+                font-size: $font-h6;
+            }
+        }
+    }
+}
+
+@include mobile_lg {
+    .clientList {
+        .clientItme {
+            margin-bottom: 20px;
+            height: 130px;
+        }
+    }
+}
+
+@include mobile_s {
+    .clientList {
+        .clientItme {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* ---------TODO: [recruit]----------*/
+@include desktop {
+    #pages_recruit {
+        .recruit_content {
+            @include flex($flex-d: column);
+            .content {
+                width: 100%;
+                order: 2;
+            }
+            .banner {
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+@include pad {
+    #hitrustpay {
+        .block_center {
+            .w_70 {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include mobile_lg {
+    .pages_banner_bg {
+        // recruit.html
+        &.p_recruit_bg {
+            background-image: url(../images/recruit-md.png);
+        }
+    }
+}
+
+
+/* ---------TODO: [news]--------------*/
+@include desktop{
+    .news-article{
+        &-banner {
+            width: 100%;
+        }
+        &-title {
+            .fz-h2{
+                font-size: $font-h5;
+                line-height: normal;
+            }
+        }
+        .pages_title {
+            .news-title{
+                font-size: 24px;
+                line-height: 36px;
+            }
+        }
+    }
+}
+
+@include pad{
+    .news-txt-bg{
+        display: none;
+    }
+    .news-list{
+        width: 100%;
+        &-date {
+            font-size: 28px;
+            padding-right: 30px;
+            & span{
+                font-size: 16px;
+            }
+        }
+        &-content{
+            width: 100%;
+        }
+    }
+    .news-block {
+        flex-direction: column;
+    }
+    .news-article{
+        .breadcrumbs{
+            padding: 0;
+        }
+        &-title{
+            padding: 0;
+            width: 100%;
+        }
+        .pages_title {
+            position: static;
+        }
+    }
+}
+
+// @include mobile_lg{
+//     .news-block {
+//         flex-direction: column;
+//     }
+//     .news-article{
+//         .breadcrumbs{
+//             padding: 0;
+//         }
+//         &-title{
+//             padding: 0;
+//             width: 100%;
+//         }
+//         .pages_title {
+//             position: static;
+//         }
+//     }
+// }
+
+//--------- TODO: 輪播套件 -----------------//
+@media screen and (max-width: 768px) {
+    .flexslider .slides img {
+        width: 100%;
+    }
+
+    .flex-direction-nav {
+        bottom: -50px;
+        left: calc(50% - 42px);
+    }
+
+    .flex-direction-nav a {
+        background-size: 15px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .flex-direction-nav {
+        bottom: -45px;
+    }
+}

@@ -1,0 +1,119 @@
+.news-block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.news-txt-bg {
+    width: 20vw;
+    opacity: 0.15;
+    position: sticky;
+    top: 100px;
+    left: 0;
+}
+
+.news-list {
+    width: 69%;
+    &-item {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid $black-10;
+        padding: 20px 10px;
+        &:hover {
+            .news-list-date {
+                color: $sub_primary;
+            }
+            .textAndBtn {
+                @include textAndBtn-hover;
+            }
+            .news-list-title {
+                color: $sub_primary;
+            }
+        }
+    }
+    &-date {
+        text-align: center;
+        font-size: $font-h2;
+        color: $black-40;
+        font-family: "Jost";
+        position: relative;
+        padding-right: 40px;
+        font-weight: 700;
+        span {
+            font-size: $font-size-base;
+            display: block;
+            margin-top: 5px;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+    }
+    &-content {
+        width: calc(100% - 160px);
+        letter-spacing: 2px;
+    }
+
+    &-title {
+        font-size: $font-h4;
+        line-height: 30px;
+        font-weight: bold;
+    }
+
+    .textAndBtn {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+}
+
+.news-article {
+    .breadcrumbs {
+        width: 100%;
+        padding-left: 20px;
+        @include breadcrumbs($black-80);
+        .i_home {
+            filter: invert(1);
+        }
+    }
+    &-banner {
+        width: 93vw;
+        margin: 81px 0 20px auto;
+        width: 100%;
+    }
+
+    &-title {
+        width: 75%;
+        padding: 0 40px 0 20px;
+    }
+    .pages_title {
+        @include pages-title($black-80);
+        position: sticky;
+        top: 100px;
+        .news-title{
+            font-size: 32px;
+            line-height: 48px;
+        }
+    }
+    &-date {
+        color: $sub_primary;
+        font-family: jost;
+        font-weight: 400;
+        margin-top: 40px;
+        position: relative;
+        &::before {
+            content: "";
+            width: 55px;
+            height: 3px;
+            background-color: $sub_primary;
+            position: absolute;
+            top: -22px;
+            left: 0;
+        }
+    }
+    &-img {
+        margin-top: 20px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .p_content_box .font-default:first-child {
+        padding-top: 0;
+    }
+}

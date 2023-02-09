@@ -1,0 +1,92 @@
+/* 人才招募圖片輪播 [start]-------------------------------------------- */
+#pages_recruit {
+    .block_content{
+        margin-bottom: 40px;
+    }
+    .banner {
+        margin-left: 20px;
+    }
+    .flexslider {
+        .slides {
+            img {
+                width: 100%;
+                max-width: 100%;
+                padding-right: 0px;
+                border-radius: 0px;
+            }
+        }
+        &:hover {
+            .flex-direction-nav{
+                .flex-prev{
+                    opacity: 0.7;
+                    left: 0;
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+                .flex-next{
+                    opacity: 0.7;
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .flex-caption {
+        width: 100%;
+        padding: 15px;
+        bottom: 0px;
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 14px;
+        line-height: 18px;
+        position: absolute;
+        @include flex($ai: center);
+        &::before{
+            content: "";
+            margin-right: 10px;
+            display: inline-block;
+            width: 2px;
+            height: 20px;
+            background-color: $sub_primary;
+        }
+    }
+    .flex-direction-nav {
+        display: block;
+        position: unset;
+        a{
+            position: absolute;
+            border-radius: 0;
+            transition: all 0.3s ease-in-out;
+            border: none;
+            background: url(../images/icon/i_arrow_white.svg) no-repeat center center;
+            margin-right: 0;
+            top: 50%;
+        }
+        .flex-prev{
+            filter: grayscale(0);
+            opacity: 0;
+            background-color: #c2a073;
+            left: 0;
+        }
+        .flex-next{
+            right: 0px;
+            opacity: 0;
+            background-color: #c2a073;
+        }
+    }
+}
+/* 人才招募圖片輪播 [end]---------------------------------------------- */
+
+#pages_recruit {
+    .recruit_content{
+        @include flex($jc: space-between);
+        .content{
+            width: 50%;
+        }
+        .banner{
+            width: 50%;
+        }
+    }
+}

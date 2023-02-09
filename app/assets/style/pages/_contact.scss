@@ -1,0 +1,62 @@
+/*----------------- TODO: map----------------------*/
+.block_map {
+    .infoBox{
+        background-color: $info;
+        padding: 40px;
+        .contact_box{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .contact_item{
+            padding: 0 30px;
+            width: 100%;
+            &:last-child{
+                padding-left: 80px;
+                border-left: 2px solid $black-20;
+            }
+            .contact_title{
+                padding-bottom: 10px;
+            }
+            .font-default{
+                padding-top: 8px;
+            }
+        }
+    }
+}
+
+.map_item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 70px;
+    .map_box {
+        max-width: 550px;
+        height: 300px;
+        width: 100%;
+        padding-right: 30px;
+    }
+    .map_info {
+        width: 100%;
+        .sub_title{
+            padding-left: 20px;
+            padding-top: 0px;
+        }
+        .line{
+            margin-top: 20px;
+            margin-bottom: 10px;
+            background-color: $primary;
+            height: 1px;
+            width: 100%;
+            border: none;
+        }
+        .font-default{
+            padding-left: 20px;
+            li{
+                &:not(:first-child){
+                    padding-top: 8px;
+                }
+            }
+        }
+    }
+}
+

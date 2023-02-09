@@ -1,0 +1,93 @@
+@mixin desktop {
+    @media (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin pad {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+// iphone 12 pro max
+@mixin mobile_lg {
+    @media (max-width: 428px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 375px) {
+        @content;
+    }
+}
+
+@mixin mobile_s {
+    @media (max-width: 320px) {
+        @content;
+    }
+}
+
+
+@mixin flex($ai:normal, $jc:normal, $flex-d:row){
+    display: flex;
+    flex-direction: $flex-d;
+    align-items: $ai;
+    justify-content: $jc;
+}
+
+/* ---------TODO: [文字+按鈕]----------*/
+@mixin textAndBtn-hover {
+    .gold {
+        background-color: transparent;
+        img {
+            content: url(../images/icon/i_arrow_gold.svg);
+        }
+    }
+    .txt {
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+/* ---------TODO: [麵包屑]----------*/
+@mixin breadcrumbs($txt-color: $white) {
+    ul {
+        @include flex($ai: center);
+        flex-wrap: wrap;
+        line-height: normal;
+        position: relative;
+    }
+    .i_home {
+        background: url("../images/icon/i_home.png") no-repeat center center;
+        background-size: 14px;
+        width: 14px;
+        height: 14px;
+    }
+    &_item {
+        padding-left: 15px;
+        font-size: 14px;
+        a {
+            color: $txt-color;
+            margin-left: 20px;
+        }
+        &::before {
+            position: absolute;
+            content: "/";
+            color: $txt-color;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+/* ---------TODO: [各頁面大標]----------*/
+@mixin pages-title($txt-color: $white) {
+    color: $txt-color;
+    font-weight: bold;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+}
